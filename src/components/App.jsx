@@ -66,8 +66,8 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formHandleSubmit} />
+        <h1>Phonebook</h1>
         <Filter value={filter} onChange={this.changeFilter} />
         <h2>Contacts</h2>
         <ContactList contacts={visible} onDelete={this.handleDelete} />
