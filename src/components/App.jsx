@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -57,20 +58,25 @@ export class App extends Component {
     return (
       <div
         style={{
-          height: '100vh',
           display: 'flex',
+          gap: '40px',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
+          alignItems: 'flex-start',
+          fontSize: 30,
           color: '#010101',
+          marginLeft: '20px',
         }}
       >
+        <h1 style={{ marginLeft: '30px' }}>Phonebook</h1>
         <ContactForm onSubmit={this.formHandleSubmit} />
-        <h1>Phonebook</h1>
+        <h2 style={{ marginLeft: '30px' }}>Contacts</h2>
         <Filter value={filter} onChange={this.changeFilter} />
-        <h2>Contacts</h2>
-        <ContactList contacts={visible} onDelete={this.handleDelete} />
+        {this.state.contacts.length === 0 ? (
+          <p style={{ color: 'red' }}>Your contacts list is empty.</p>
+        ) : (
+          <ContactList contacts={visible} onDelete={this.handleDelete} />
+        )}
       </div>
     );
   }

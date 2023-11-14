@@ -1,3 +1,5 @@
+import { Li, Button } from './Contact.styled';
+
 export const Contact = props => {
   const formatNumber = number => {
     return number.replace(/(\d{3})(\d{2})(\d{2})/, `$1-$2-$3`);
@@ -6,12 +8,12 @@ export const Contact = props => {
   return (
     <ul>
       {props.contacts.map(contact => (
-        <li key={contact.id}>
+        <Li key={contact.id}>
           {contact.name}: {formatNumber(contact.number)}{' '}
-          <button type="button" onClick={() => props.onDelete(contact.id)}>
+          <Button type="button" onClick={() => props.onDelete(contact.id)}>
             Delete
-          </button>
-        </li>
+          </Button>
+        </Li>
       ))}
     </ul>
   );
