@@ -11,28 +11,18 @@ export class ContactForm extends Component {
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
-
-    console.log('Name:', name);
-    console.log('Value:', value);
-
     this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const { name, number } = this.state;
-
-    // ... (rest of the code)
-
     const newContact = {
       id: nanoid(),
       name,
       number,
     };
-
-    // Make sure to pass both name and number to onSubmit
     this.props.onSubmit(newContact.name, newContact.number);
-
     this.reset();
   };
 

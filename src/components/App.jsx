@@ -21,14 +21,6 @@ export class App extends Component {
   formHandleSubmit = (name, number) => {
     const { contacts } = this.state;
 
-    // Check if 'number' is defined and is a string
-    if (!number || typeof number !== 'string') {
-      console.error('Invalid number:', number);
-      // Handle the case where 'number' is not valid
-      // You might want to display an error message or handle this case appropriately
-      return;
-    }
-
     const newContact = {
       id: nanoid(),
       name,
@@ -54,13 +46,6 @@ export class App extends Component {
   filterContacts = () => {
     const contactsToLower = this.state.filter.toLowerCase();
     return this.state.contacts.filter(contact => {
-      console.log('Contact:', contact);
-
-      if (!contact || typeof contact.name !== 'string') {
-        console.error('Invalid contact:', contact);
-        return false;
-      }
-
       const contactName = contact.name.toLowerCase();
       return contactName.includes(contactsToLower);
     });
