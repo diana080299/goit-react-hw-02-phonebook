@@ -64,10 +64,10 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <h1 style={{ fontSize: 48 }}>Phonebook</h1>
+        <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formHandleSubmit} />
         <Filter value={filter} onChange={this.changeFilter} />
-        <h2 style={{ fontSize: 46 }}>Contacts</h2>
+        <h2>Contacts</h2>
         <ContactList
           props={this.state}
           contacts={visible}
