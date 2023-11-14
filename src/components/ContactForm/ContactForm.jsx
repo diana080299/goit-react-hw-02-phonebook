@@ -20,8 +20,8 @@ export class ContactForm extends Component {
     const { name, number } = this.state;
     const newContact = {
       id: nanoid(),
-      name,
-      number,
+      name: name,
+      number: number,
     };
     this.props.onSubmit(newContact);
     this.reset();

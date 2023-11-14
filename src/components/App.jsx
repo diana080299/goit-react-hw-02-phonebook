@@ -22,8 +22,8 @@ export class App extends Component {
     const { contacts } = this.state;
     const newContact = {
       id: nanoid(),
-      name,
-      number,
+      name: name, // Assuming 'name' is a string
+      number: number,
     };
     const isContactExists = contacts.some(contact => contact.name === name);
     if (isContactExists) {
@@ -44,7 +44,14 @@ export class App extends Component {
   filterContacts = () => {
     const contactsToLower = this.state.filter.toLowerCase();
     return this.state.contacts.filter(contact => {
-      const contactName = contact.name ? contact.name.toLowerCase() : '';
+      console.log('Contact:', contact);
+
+      if (!contact || typeof contact.name !== 'string') {
+        console.error('Invalid contact:', contact);
+        return false;
+      }
+
+      const contactName = contact.name.toLowerCase();
       return contactName.includes(contactsToLower);
     });
   };
