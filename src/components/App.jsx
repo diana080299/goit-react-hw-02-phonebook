@@ -20,11 +20,21 @@ export class App extends Component {
 
   formHandleSubmit = (name, number) => {
     const { contacts } = this.state;
+
+    // Check if 'number' is defined and is a string
+    if (!number || typeof number !== 'string') {
+      console.error('Invalid number:', number);
+      // Handle the case where 'number' is not valid
+      // You might want to display an error message or handle this case appropriately
+      return;
+    }
+
     const newContact = {
       id: nanoid(),
-      name: name, // Assuming 'name' is a string
-      number: number,
+      name,
+      number,
     };
+
     const isContactExists = contacts.some(contact => contact.name === name);
     if (isContactExists) {
       alert(`${name} is already in contacts.`);
