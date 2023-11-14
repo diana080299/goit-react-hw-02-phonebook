@@ -68,11 +68,7 @@ export class App extends Component {
         <ContactForm onSubmit={this.formHandleSubmit} />
         <Filter value={filter} onChange={this.changeFilter} />
         <h2>Contacts</h2>
-        <ContactList
-          props={this.state}
-          contacts={visible}
-          onDelete={this.handleDelete}
-        />
+        <ContactList contacts={visible} onDelete={this.handleDelete} />
       </div>
     );
   }
